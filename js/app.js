@@ -16,6 +16,7 @@ function xhrFunc() {
 
 function createPagination(currPage, totalPage, urlSearchParams) {
     var container = document.createElement('div')
+    container.className = 'pagination'
 
     for (var i = 1; i <= totalPage; i++) {
         var a = document.createElement('a')

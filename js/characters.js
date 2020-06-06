@@ -9,7 +9,7 @@ window.onload = function () {
 var urlSearchParams = new URLSearchParams(location.search)
 
 function getData(callback) {
-    var currPage = Number(urlSearchParams.get('page')) || 1
+    var currPage = Number(urlSearchParams.get('page')) || '1'
     var personStatus = urlSearchParams.get('status') || ""
     var query = document.getElementById('searchInput').value
     query && (currPage = 1)
@@ -100,9 +100,12 @@ function createStatusBar(status) {
     var statusArr = ['', 'Alive', 'Dead', 'unknown']
     for (var i = 0; i < 4; i++) {
         var a = document.createElement('a')
+
         var tmp = new URLSearchParams(location.search)
         tmp.set('status', statusArr[i])
+        tmp.set('page', '1')
         a.href = '?' + tmp.toString()
+
         var li = document.createElement('li')
         li.innerText = statusArr[i] || "All"
         if (statusArr[i] == status) {
