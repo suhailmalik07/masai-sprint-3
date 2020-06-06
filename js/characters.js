@@ -11,13 +11,15 @@ var urlSearchParams = new URLSearchParams(location.search)
 function getData(callback) {
     var currPage = Number(urlSearchParams.get('page')) || '1'
     var personStatus = urlSearchParams.get('status') || ""
+    var gender = urlSearchParams.get('gender') || ""
     var query = document.getElementById('searchInput').value
     query && (currPage = 1)
     var params = new this.URLSearchParams(
         {
             'page': currPage,
             'name': query,
-            'status': personStatus
+            'status': personStatus,
+            'gender': gender
         }
     )
     this.xhr.get('character?' + params.toString(), callback)
@@ -39,14 +41,19 @@ function renderDOM(status, response) {
     })
     res.appendChild(cards)
 
-    // create Status filter bar at left
+    // filter bar at left
     var filter = document.querySelector('.filter')
     filter.innerHTML = ""
 
+    // Create Status filter on left
     var personStatus = urlSearchParams.get('status') || ""
     var statusFilter = createStatusBar(personStatus)
 
-    filter.appendChild(statusFilter)
+    // create Gender filter on left
+    var gender = urlSearchParams.get('gender') || ""
+    var genderFilter = createGenderBar(gender)
+
+    filter.append(statusFilter, genderFilter)
 
     var pagination = document.getElementById('pagination')
     pagination.innerHTML = ""
@@ -107,8 +114,36 @@ function createStatusBar(status) {
         a.href = '?' + tmp.toString()
 
         var li = document.createElement('li')
+        li.className = statusArr[i]
         li.innerText = statusArr[i] || "All"
         if (statusArr[i] == status) {
+            li.id = 'active2'
+        }
+        a.appendChild(li)
+        ul.appendChild(a)
+    }
+    return ul
+}
+
+function createGenderBar(gender) {
+    var ul = document.createElement('ul')
+    var h3 = document.createElement('h3')
+    h3.innerText = 'Gender'
+    ul.appendChild(h3)
+
+    var statusArr = ['', 'male', 'female', 'genderless', 'unknown']
+    for (var i = 0; i < statusArr.length; i++) {
+        var a = document.createElement('a')
+
+        var tmp = new URLSearchParams(location.search)
+        tmp.set('gender', statusArr[i])
+        tmp.set('page', '1')
+        a.href = '?' + tmp.toString()
+
+        var li = document.createElement('li')
+        // li.className = statusArr[i]
+        li.innerText = statusArr[i] || "All"
+        if (statusArr[i] == gender) {
             li.id = 'active2'
         }
         a.appendChild(li)
