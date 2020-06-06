@@ -37,9 +37,13 @@ nav a {
     text-align: right;
 }
 
+.searchDiv {
+    width: 50%;
+}
+
 .searchInput {
     width: 100%;
-    width: 500px;
+    /* width: 500px; */
     padding: 0.5em 1em;
     border-radius: 1em;
     border: 1px solid #999;
