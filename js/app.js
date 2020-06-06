@@ -10,6 +10,9 @@ function xhrFunc() {
         req.onload = function () {
             cb(this.status, JSON.parse(this.response))
         }
+        req.onerror = function () {
+            console.log('error')
+        }
     }
     return { get }
 }

@@ -1,0 +1,54 @@
+.container {
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    padding-bottom: 3em;
+}
+
+.head {
+    box-shadow: 0 4px 15px -5px rgba(0, 0, 0, 0.4);
+    padding: 1em;
+}
+
+.head>img {
+    width: 20%;
+}
+
+.head>div {
+    text-align: left;
+    width: 65%;
+    margin-left: 1em;
+}
+.head p{
+    font-size: 18px;
+}
+
+.head h1 {
+    margin-bottom: 1em;
+}
+
+.linkCont {
+    margin-top: 2em;
+}
+.linkCont>h1{
+    margin-bottom: 1em;
+}
+
+img {
+    margin-bottom: 0.4em;
+}
+
+.linkCont>div>a {
+    width: 20%;
+    transition: 0.3s;
+}
+
+.linkCont>div>a:hover {
+    margin-top: -5px;
+    transition: margin-top 0.3s;
+}
+
+.linkCont img {
+    width: 100%;
+    border-radius: 50%;
+}

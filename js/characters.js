@@ -26,8 +26,9 @@ function getData(callback) {
 }
 
 function renderDOM(status, response) {
-    if (status != 200) {
+    if (status != 200 || !response) {
         error()
+        return
     }
 
     // create elem
@@ -150,4 +151,15 @@ function createGenderBar(gender) {
         ul.appendChild(a)
     }
     return ul
+}
+
+function error(){
+    var res = document.getElementById('res')
+    res.innerHTML = ""
+    document.getElementById('pagination').innerHTML = ""
+
+    var p = document.createElement('p')
+    p.className = 'error'
+    p.innerText = "Can't find your query!"
+    res.appendChild(p)
 }

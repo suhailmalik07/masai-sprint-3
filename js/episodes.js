@@ -33,8 +33,9 @@ function getData(callback) {
 }
 
 function renderDOM(status, response) {
-    if (status != 200) {
+    if (status != 200 || !response) {
         error()
+        return
     }
     // Asked season number
     var season = Number(new URLSearchParams(location.search).get('season')) || ""
@@ -90,7 +91,7 @@ function createCard(episode) {
 
     // create Air Date
     var airDate = document.createElement('p')
-    airDate.innerText = episode.air_date
+    airDate.innerText = "Aired on: "+ episode.air_date
 
     // Append all and return
     div.append(name, episodeText, airDate)
@@ -129,4 +130,15 @@ function getPagination(count) {
     var totalPage = Math.ceil(count / 20)
     var pagination = createPagination(currPage, totalPage, urlSearchParams)
     return pagination
+}
+
+function error(){
+    var res = document.getElementById('res')
+    res.innerHTML = ""
+    document.getElementById('pagination').innerHTML = ""
+
+    var p = document.createElement('p')
+    p.className = 'error'
+    p.innerText = "Can't find your query!"
+    res.appendChild(p)
 }
