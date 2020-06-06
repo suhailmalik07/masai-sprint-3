@@ -14,13 +14,14 @@ function xhrFunc() {
     return { get }
 }
 
-function createPagination(currPage, totalPage) {
+function createPagination(currPage, totalPage, urlSearchParams) {
     var container = document.createElement('div')
 
     for (var i = 1; i <= totalPage; i++) {
         var a = document.createElement('a')
         a.innerText = i
-        a.href = '?page=' + i
+        urlSearchParams.set('page', i)
+        a.href = '?' + urlSearchParams
         if (i == currPage) {
             a.className = 'currPage'
         }

@@ -7,6 +7,7 @@ window.onload = function () {
     searchInput.addEventListener('input', search)
 }
 
+var urlSearchParams = new URLSearchParams(location.search)
 
 function getData(callback) {
     var tmp = new URLSearchParams(location.search)
@@ -106,11 +107,14 @@ function createSeasonBar(season) {
     var h3 = document.createElement('h3')
     h3.innerText = 'Season'
     ul.appendChild(h3)
-    for (var i = 1; i <= 4; i++) {
+    for (var i = 0; i <= 4; i++) {
         var a = document.createElement('a')
         a.href = '?season=' + i
         var li = document.createElement('li')
         li.innerText = 'Season ' + i
+        if (i == 0) {
+            li.innerText = 'All'
+        }
         if (i == season) {
             li.id = 'active2'
         }
@@ -123,6 +127,6 @@ function createSeasonBar(season) {
 function getPagination(count) {
     var currPage = Number(new URLSearchParams(location.search).get('page')) || 1
     var totalPage = Math.ceil(count / 20)
-    var pagination = createPagination(currPage, totalPage)
+    var pagination = createPagination(currPage, totalPage, urlSearchParams)
     return pagination
 }

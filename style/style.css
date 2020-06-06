@@ -50,7 +50,7 @@ nav a {
 }
 
 .container {
-    /* background-color: white; */
+    background-color: white;
 }
 
 .hero {
@@ -91,6 +91,7 @@ nav a {
 .filter>ul {
     margin: 1em 0.5em;
     border-radius: 0.5em;
+    border: 1px solid #ddd;
 }
 
 .filter>ul>a>li {
@@ -100,13 +101,14 @@ nav a {
 
 .filter>ul>h3 {
     text-align: center;
-    margin: 0.5em;
+    /* margin: 0.5em; */
+    padding: 0.5em;
+    border-bottom: 1px solid #ddd;
 }
 
 #active2 {
     background-color: #0a36ff;
     color: white;
-    border-radius: 0.5em;
 }
 
 a {
