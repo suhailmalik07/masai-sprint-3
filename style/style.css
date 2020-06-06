@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eee;
+}
+
+nav {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0.8em;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    padding: 1em;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo p {
+    text-align: right;
+}
+
+.searchInput {
+    width: 100%;
+    width: 500px;
+    padding: 0.9em 1em;
+    border-radius: 1em;
+    border: 1px solid #bbb;
+    box-shadow: 0px 0px 8px 0px #ccc;
+}
+
+#active {
+    background-color: #0a36ff;
+    color: white;
+    border-radius: 5em;
+}
+
+.container {
+    /* background-color: white; */
+}
+
+.hero {
+    width: 80%;
+    margin: 0em 0 0 auto;
+    padding-top: 1em;
+    background-color: white;
+    /* border: 1px solid; */
+}
+
+.Alive {
+    color: green;
+}
+
+.Dead {
+    color: red;
+}
+
+.unknown {
+    color: orange;
+}
+
+.dot {
+    width: 1px;
+    height: 1px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.filter {
+    width: 20%;
+}
+
+.filter>ul {
+    margin: 1em 0.5em;
+    border-radius: 0.5em;
+}
+
+.filter>ul>a>li {
+    width: 100%;
+    padding: 1em;
+}
+
+.filter>ul>h3 {
+    text-align: center;
+    margin: 0.5em;
+}
+
+#active2 {
+    background-color: #0a36ff;
+    color: white;
+    border-radius: 0.5em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

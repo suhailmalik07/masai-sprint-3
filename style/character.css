@@ -1,0 +1,28 @@
+body {
+    background-color: white;
+}
+
+.profile {
+    width: 80%;
+    margin: 1em auto;
+    padding: 1em;
+}
+
+.profile>* {
+    width: 45%;
+}
+
+.profile img {
+    width: 100%;
+    border-radius: 0.5em;
+    margin-right: 1em;
+    max-width: 300px;
+}
+
+.profile * {
+    margin-bottom: 0.5em;
+}
+
+.profile p {
+    font-size: 20px;
+}
